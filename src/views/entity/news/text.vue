@@ -16,7 +16,7 @@
       :autosize="{ minRows: 22}"
       placeholder=""
     />
-    <button @click="changeEditor"> {{ isShow?'切换源码':'切换视图' }}</button>
+    <button @click="changeEditor"> {{ isShow ? '切换源码' : '切换视图' }}</button>
 
   </div>
 </template>

@@ -2,12 +2,22 @@
   <div class="editor">
     <toolbar :default-config="toolbarConfig" :editor="editor" mode="default" />
     <editor
+      v-show="isShow"
       v-model="info_"
       class="text"
       :default-config="editorConfig"
       mode="default"
       @onCreated="onCreated"
     />
+    <el-input
+      v-show="!isShow"
+      v-model="textarea2"
+      type="textarea"
+      :autosize="{ minRows: 22}"
+      placeholder=""
+    />
+    <button @click="changeEditor"> {{ isShow?'切换源码':'切换视图' }}</button>
+
   </div>
 </template>
 
@@ -42,6 +52,8 @@ export default {
 
     return {
       // uploadPath,
+      textarea2: '',
+      isShow: true,
       editor: null,
       info_: null,
       toolbarConfig: {
@@ -172,6 +184,15 @@ export default {
   methods: {
     onCreated(editor) {
       this.editor = Object.seal(editor) // 一定要用 Object.seal() ，否则会报错
+    },
+    changeEditor() {
+      this.isShow = !this.isShow
+      if (this.isShow) {
+        this.info_ = this.textarea2
+      } else {
+        this.textarea2 = this.editor.getHtml()
+        console.log(this.textarea2, 192)
+      }
     }
   }
 }

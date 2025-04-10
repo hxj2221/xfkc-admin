@@ -105,7 +105,11 @@
             <el-radio :label="1">小学</el-radio>
             <el-radio :label="2">初中</el-radio>
             <el-radio :label="3">高中</el-radio>
-            <el-radio :label="4">九年一贯</el-radio>
+            <el-radio :label="4">九年一贯制学校</el-radio>
+            <el-radio :label="5">民办一贯制学校</el-radio>
+            <el-radio :label="6">民办随迁子女学校</el-radio>
+            <el-radio :label="7">民办初中</el-radio>
+            <el-radio :label="8">特殊学校</el-radio>
           </el-radio-group>
         </el-form-item>
         <el-form-item label="排列序号" prop="">
@@ -141,7 +145,11 @@
             <span v-if="scope.row.level === 1" class="school-tag tag-2">小学</span>
             <span v-if="scope.row.level === 2" class="school-tag tag-3">初中</span>
             <span v-if="scope.row.level === 3" class="school-tag tag-4">高中</span>
-            <span v-if="scope.row.level === 4" class="school-tag tag-4">九年一贯</span>
+            <span v-if="scope.row.level === 4" class="school-tag tag-4">九年一贯学校</span>
+            <span v-if="scope.row.level === 5" class="school-tag tag-5">民办一贯制学校</span>
+            <span v-if="scope.row.level === 6" class="school-tag tag-6">民办随迁子女学校</span>
+            <span v-if="scope.row.level === 7" class="school-tag tag-7">民办初中</span>
+            <span v-if="scope.row.level === 8" class="school-tag tag-8">特殊学校</span>
             {{ scope.row.name }}
           </template>
           <template v-else-if="scope.row.deptLevel === 2">
@@ -245,7 +253,12 @@ export default {
         { id: 0, name: '幼儿园' },
         { id: 1, name: '小学' },
         { id: 2, name: '初中' },
-        { id: 3, name: '高中' }
+        { id: 3, name: '高中' },
+        { id: 4, name: '九年一贯学校' },
+        { id: 5, name: '民办一贯制学校' },
+        { id: 6, name: '民办随迁子女学校' },
+        { id: 7, name: '民办初中' },
+        { id: 8, name: '特殊学校' }
       ],
       depts: [],
       rules: {
